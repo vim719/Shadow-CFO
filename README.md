@@ -96,11 +96,11 @@ graph TB
 |-------|-------------|---------|
 | **Frontend** | Next.js 19, React 19, Tailwind CSS 4 | UI rendering, responsive design |
 | **Backend** | Bun 1.3.11, TypeScript 5 | High-performance API routes |
-| **Database** | Supabase (Postgres + RLS) | Auth, data storage, real-time |
+| **Database** | MongoDB (Atlas) | Auth, data storage, real-time |
 | **Banking** | Plaid API 42.2.0 | Account connection, transaction sync |
 | **AI** | Codex by OpenAI for code generation, Claude and Gemini for research | Coaching engine, leakage detection |
 | **Payments** | Stripe | Subscription billing ($49/mo) |
-| **Deployment** | Vercel (frontend), Supabase (backend) 
+| **Deployment** | Vercel (frontend), MongoDB ATLAS (backend) 
 | **Analytics** | PostHog (self-hosted) | User behavior tracking |
 
 > ⚠️ **Architecture Note:** Bun.serve backend runs separately from Vercel frontend. For production, deploy backend to Railway or Fly.io.
@@ -435,7 +435,7 @@ supabase db push
 
 ## 🤝 Contributing
 
-Shadow CFO is currently a **solo-founded project**. We're not hiring or seeking co-founders.
+Shadow CFO is currently a **startup MVP project**. We're not hiring or seeking co-founders.
 
 ### For Contractors
 - 1 part-time contractor via Toptal/Contra (10–15 hours/month at $50/hr)

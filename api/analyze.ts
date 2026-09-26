@@ -72,7 +72,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     if (req.method !== "POST") return json(res, 405, { error: "Method not allowed" });
 
     const col = await getCollection();
-    let harness = await col.findOne({ key: HARNESS_KEY });
+    let harness: HarnessConfig | null = await col.findOne({ key: HARNESS_KEY });
     if (!harness) {
       const now = new Date().toISOString();
       const seed: HarnessConfig = {
@@ -85,7 +85,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
         createdAt: now,
         updatedAt: now,
       };
-      await col.insertOne({ ...seed, _id: undefined });
+      await col.insertOne(seed);
       harness = seed;
     }
     const current: HarnessConfig = (({ _id, ...rest }) => rest)(harness as HarnessConfig & { _id?: unknown });

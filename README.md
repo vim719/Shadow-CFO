@@ -1,4 +1,4 @@
-# 🌑 Shadow CFO — Agentic Wealth OS
+# 🌑 Shadow CFO — Self-improving AI Financial Agent 
 
 ![Shadow CFO](https://img.shields.io/badge/Status-🚀%20In%20Development-orange?style=for-the-badge)
 ![Version](https://img.shields.io/badge/Version-0.1.0-blue?style=for-the-badge)
@@ -16,7 +16,7 @@
 
 ## 🔥 What Is Shadow CFO?
 
-> **The first Agentic Wealth OS that doesn't just show you problems — it fixes them.**
+> **The first Self-improving AI Financial Agent that doesn't just show you problems — it fixes them.**
 > 
 > For the 45 million Americans earning too much for Dave Ramsey and too little for Goldman Sachs.
 

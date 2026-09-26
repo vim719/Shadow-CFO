@@ -85,7 +85,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
         createdAt: now,
         updatedAt: now,
       };
-      await col.insertOne(seed);
+      await col.insertOne({ ...seed, _id: undefined });
       harness = seed;
     }
     const current: HarnessConfig = (({ _id, ...rest }) => rest)(harness as HarnessConfig & { _id?: unknown });

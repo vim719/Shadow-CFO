@@ -1,0 +1,44 @@
+{
+  "name": "shadow-cfo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "build": "tailwindcss -i ./frontend/styles/globals.css -o ./public/globals.css && bun build ./frontend/app.tsx --outfile ./public/app.js --minify",
+    "start": "bun run dist/index.js",
+    "test": "bun test",
+    "test:unit": "bun test tests/unit",
+    "lint": "echo 'No linter configured'",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@0gfoundation/0g-compute-ts-sdk": "^0.8.4",
+    "@0gfoundation/0g-storage-ts-sdk": "1.2.10",
+    "@supabase/supabase-js": "^2.57.0",
+    "busboy": "^1.6.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "ethers": "6.13.1",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.8.0",
+    "pdf-parse": "^1.1.1",
+    "plaid": "^42.2.0",
+    "postgres": "^3.4.0",
+    "radix-ui": "^1.4.3",
+    "react": "19",
+    "react-dom": "19",
+    "react-plaid-link": "^4.1.1",
+    "tailwind-merge": "^3.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "@types/busboy": "^1.5.4",
+    "@types/pdf-parse": "^1.1.4",
+    "@types/bun": "latest",
+    "@types/react": "19",
+    "@types/react-dom": "19",
+    "tailwindcss": "4",
+    "typescript": "^5"
+  }
+}

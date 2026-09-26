@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+
+/* ─── Shadow CFO Design Tokens ─── */
+:root {
+  /* Backgrounds */
+  --bg-base: #FFFFFF;
+  --bg-surface: #F8FAFC; /* Very light bluish-white */
+  --bg-elevated: #F1F5F9;
+  --bg-glass: rgba(255, 255, 255, 0.7);
+
+  /* Accent Palette */
+  --accent-cyan: #0070F3; /* More professional blue for light theme */
+  --accent-glow: #3291FF;
+  --accent-emerald: #00C896;
+  --accent-amber: #F0A500;
+  --accent-gold: #D4AF37; /* Metallic Gold */
+  --accent-gold-text: #856404; /* High-contrast Gold for text accessibility */
+  --accent-solv: #7928CA; /* Deep purple-blue for Solv */
+  --accent-red: #E00;
+
+  /* Text */
+  --text-primary: #0F172A; /* Deep slate for headings */
+  --text-muted: #475569; /* Slate for body */
+  --text-subtle: #94A3B8; /* Muted for meta */
+
+  /* Borders */
+  --border-subtle: #E2E8F0;
+  --border-glow: rgba(0, 112, 243, 0.1);
+
+  /* Shadows / Glows (Flipped for light mode) */
+  --glow-cyan: 0 10px 40px rgba(0, 112, 243, 0.08);
+  --glow-cyan-strong: 0 20px 80px rgba(0, 112, 243, 0.12);
+  --glow-amber: 0 10px 40px rgba(240, 165, 0, 0.1);
+  --glow-solv: 0 10px 40px rgba(121, 40, 202, 0.1);
+
+  /* shadcn required variables (light mode) */
+  --background: var(--bg-base);
+  --foreground: var(--text-primary);
+  --card: var(--bg-surface);
+  --card-foreground: var(--text-primary);
+  --popover: var(--bg-base);
+  --popover-foreground: var(--text-primary);
+  --primary: var(--accent-cyan);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--bg-elevated);
+  --secondary-foreground: var(--text-primary);
+  --muted: var(--bg-elevated);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--bg-elevated);
+  --accent-foreground: var(--text-primary);
+  --destructive: var(--accent-red);
+  --border: var(--border-subtle);
+  --input: #FFFFFF;
+  --ring: var(--accent-cyan);
+  --radius: 1.75rem; /* More rounded like Bumble */
+
+  /* Typography */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@theme inline {
+  /* Backgrounds */
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+
+  /* Accents */
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-glow: var(--accent-glow);
+  --color-accent-emerald: var(--accent-emerald);
+  --color-accent-amber: var(--accent-amber);
+  --color-accent-solv: var(--accent-solv);
+
+  /* Text */
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+
+  /* Border */
+  --color-border-subtle: var(--border-subtle);
+
+  /* shadcn tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Fonts */
+  --font-family-display: var(--font-display);
+  --font-family-body: var(--font-body);
+  --font-family-mono: var(--font-mono);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+  --radius-2xl: calc(var(--radius) + 16px);
+}
+
+/* ─── Global Base ─── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  ::selection {
+    background: rgba(0, 112, 243, 0.12);
+    color: var(--accent-cyan);
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-base);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-subtle);
+    border-radius: 2px;
+  }
+}
+
+/* ─── Typography Utilities ─── */
+@utility text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+}
+
+@utility text-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+@utility text-display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+@utility text-label-upper {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@utility text-mono-data {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Glass Card Utility ─── */
+@utility card-glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+@utility card-surface {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+/* ─── Glow Utilities ─── */
+@utility glow-cyan {
+  box-shadow: var(--glow-cyan);
+}
+
+@utility glow-cyan-strong {
+  box-shadow: var(--glow-cyan-strong);
+}
+
+@utility glow-amber {
+  box-shadow: var(--glow-amber);
+}
+
+@utility glow-solv {
+  box-shadow: var(--glow-solv);
+}
+
+@utility text-glow-cyan {
+  text-shadow: 0 0 30px rgba(0, 112, 243, 0.2);
+}
+
+/* ─── Noise Overlay Utility ─── */
+@utility noise-overlay {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+    opacity: 0.01; /* Much subtler for light mode */
+    pointer-events: none;
+    border-radius: inherit;
+  }
+}
+
+/* ─── Scrollbar Hidden ─── */
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

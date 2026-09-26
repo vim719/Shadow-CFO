@@ -1,0 +1,12 @@
+{
+  "name": "shadow-cfo-product-kit",
+  "version": "1.0.0",
+  "description": "Shadow CFO product scaffolding for spec-first feature work.",
+  "entry": "README.md",
+  "keywords": [
+    "shadow-cfo",
+    "spec-first",
+    "agent-committee",
+    "product"
+  ]
+}

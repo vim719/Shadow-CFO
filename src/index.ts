@@ -23,6 +23,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join, extname } from "node:path";
 import { handleUpload } from "./routes/documents/upload-analyze";
 import { handleSignedUrl } from "./routes/documents/signed-url";
+import { handleAnalyze } from "./routes/harness/analyze";
 
 // ============================================================================
 // SANITY TEST: Check environment variables at startup
@@ -33,6 +34,7 @@ console.log("🧪 Sanity test (startup):");
 console.log("PLAID_CLIENT_ID:", process.env.PLAID_CLIENT_ID ? "✅ OK" : "❌ UNDEFINED!");
 console.log("SUPABASE_URL:", process.env.NEXT_PUBLIC_SUPABASE_URL ? "✅ OK" : "❌ UNDEFINED!");
 console.log("SUPABASE_SERVICE_ROLE:", process.env.SUPABASE_SERVICE_ROLE_KEY ? "✅ OK" : "❌ UNDEFINED!");
+console.log("MONGODB_URI:", process.env.MONGODB_URI ? "✅ OK" : "❌ UNDEFINED!");
 
 // ============================================================================
 // MIME types for static file serving
@@ -111,6 +113,9 @@ const apiRoutes: Record<string, Record<string, (req: Request) => Promise<Respons
   "/api/documents/signed-url": {
     GET: handleSignedUrl,
   },
+  "/api/analyze": {
+    POST: handleAnalyze,
+  },
 };
 
 // ============================================================================
@@ -149,3 +154,4 @@ console.log("   Endpoints:");
 console.log("   - POST /api/plaid/link-token");
 console.log("   - POST /api/plaid/exchange");
 console.log("   - POST /api/plaid/transactions");
+console.log("   - POST /api/analyze");

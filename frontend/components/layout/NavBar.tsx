@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 
 interface NavBarProps {
   onGetStarted: () => void;
+  onHarness?: () => void;
 }
 
 const NAV_LINKS = [
@@ -13,7 +14,7 @@ const NAV_LINKS = [
   { label: "$SOLV", href: "#solv" },
 ];
 
-export default function NavBar({ onGetStarted }: NavBarProps) {
+export default function NavBar({ onGetStarted, onHarness }: NavBarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -97,6 +98,15 @@ export default function NavBar({ onGetStarted }: NavBarProps) {
               </span>
             </a>
           ))}
+          {onHarness && (
+            <button
+              onClick={onHarness}
+              className="text-sm transition-colors hover:opacity-100"
+              style={{ color: "var(--text-muted)", fontFamily: "var(--font-body)" }}
+            >
+              Harness
+            </button>
+          )}
         </div>
 
         {/* CTA */}

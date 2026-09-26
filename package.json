@@ -22,6 +22,7 @@
     "ethers": "6.13.1",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.8.0",
+    "mongodb": "6",
     "pdf-parse": "^1.1.1",
     "plaid": "^42.2.0",
     "postgres": "^3.4.0",

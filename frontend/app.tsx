@@ -11,8 +11,9 @@ import FinalCTASection from "@/components/sections/FinalCTASection";
 import ConnectBankScreen from "@/components/flow/ConnectBankScreen";
 import FirstLeakScreen from "@/components/flow/FirstLeakScreen";
 import SocialProofHero from "@/components/sections/SocialProofHero";
+import HarnessSection from "@/components/sections/HarnessSection";
 
-type View = "landing" | "connect" | "leak";
+type View = "landing" | "connect" | "leak" | "harness";
 
 function App() {
   const [view, setView] = useState<View>("landing");
@@ -44,10 +45,18 @@ function App() {
     );
   }
 
+  if (view === "harness") {
+    return (
+      <TooltipProvider>
+        <HarnessSection onBack={() => goTo("landing")} />
+      </TooltipProvider>
+    );
+  }
+
   return (
     <TooltipProvider>
       <div className="relative min-h-screen" style={{ background: "var(--bg-base)" }}>
-        <NavBar onGetStarted={() => goTo("connect")} />
+        <NavBar onGetStarted={() => goTo("connect")} onHarness={() => goTo("harness")} />
         <main>
           <SocialProofHero />
           <div id="audit-hero">

@@ -175,4 +175,4 @@ LEDGER PREVIEW (after fix)            ← Mono font, muted — reassurance signa
 
 *Document generated as part of the Shadow CFO frontend design system.*  
 *Author: Shadow CFO Design System v1*  
-*Date: April 2026*
+
